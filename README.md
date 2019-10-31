@@ -4,7 +4,7 @@
 
 ## Stack
 
-* Angular 8 (https://angular.io/) on the client
+* Angular 8 (https://angular.io/)
 * TypeScript (https://www.typescriptlang.org/)
 * RxJS (https://rxjs-dev.firebaseapp.com/)
 * CSS based on [ng-bootstrap](https://ng-bootstrap.github.io)
