@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from './weather/weather.service';
+import { NgForm } from '@angular/forms';
 
+import { WeatherService } from './weather/weather.service';
+import { CityWeather } from 'src/app/modules/city-weather';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +13,14 @@ export class AppComponent implements OnInit {
   title = 'weather-project';
   weather = [];
   city: string;
+  cityWeather: Array<CityWeather>;
 
   constructor(private weatherService: WeatherService) {
     this.resetForm();
   }
 
   ngOnInit(): void {
-    this.weatherService.getWeatherForCurrentDay('Lviv')
-      .subscribe(data => {
-        this.weather.push(data);
-      });
+
   }
 
   // Stripping the form
@@ -28,5 +28,12 @@ export class AppComponent implements OnInit {
     this.city = '';
   }
 
-
+  onSubmit() {
+    console.log(this.city);
+    this.weatherService.getWeatherForCurrentDay(this.city)
+      .subscribe(data => {
+        this.weather.unshift(data);
+        this.resetForm();
+      });
+  }
 }
