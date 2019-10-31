@@ -13,7 +13,7 @@ export class WeatherService {
 
     getWeatherForCurrentDay(location) {
       return this.http.get(
-        `${this.baseUrl}${this.currentDay}?access_key=${this.accessKey}&query=${'Lviv'}`
+        `${this.baseUrl}${this.currentDay}?access_key=${this.accessKey}&query=${location}`
         );
     }
 
