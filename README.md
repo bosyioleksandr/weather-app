@@ -19,13 +19,14 @@ Either clone this repository or fork it on GitHub and clone your fork:
 
 ```
 git clone https://github.com/bosyioleksandr/weather-app.git
-cd weather-app
+cd weather-app/weather-project
 ```
 ### Client App
 
 * Install local dependencies (from the project root folder):
 
     ```
+    cd weather-app/weather-project
     npm install
     ```
   (This will install the dependencies declared in the package.json file)
@@ -34,9 +35,11 @@ cd weather-app
 * Build client application:
 
     ```
+    cd weather-app/weather-project
     ng build
     ```
 ### Start the app
 
+* Go to `cd weather-app/weather-project`
 * Run `ng serve`.
 * Open one or more browsers and point them to [http://localhost:4200/].
