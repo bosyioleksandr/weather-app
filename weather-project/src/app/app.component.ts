@@ -8,13 +8,17 @@ import { WeatherService } from './weather/weather.service';
 })
 export class AppComponent implements OnInit {
   title = 'weather-project';
+  weather = [];
 
   constructor(private weatherService: WeatherService) {
 
   }
 
   ngOnInit(): void {
-    this.weatherService.getWeatherForCurrentDay().subscribe(data => console.log(data));
+    this.weatherService.getWeatherForCurrentDay('Lviv')
+        .subscribe(data => {
+          this.weather.push(data);
+        });
   }
 
 

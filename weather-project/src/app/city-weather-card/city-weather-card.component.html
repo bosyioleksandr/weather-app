@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    <div class="card text-center">
+        <div class="card-header">
+            <span>{{ data.request.query }}</span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <span>{{ data.current.weather_descriptions[0] }}</span>
+                <img [src]="data.current.weather_icons[0]" alt="">
+            </h5>
+            <p class="card-text">Temperature: {{ data.current.temperature }}C</p>
+        </div>
+        <div class="card-footer text-muted">
+            <span>{{ data.location.localtime }}</span>
+        </div>
+    </div>
+</div>
