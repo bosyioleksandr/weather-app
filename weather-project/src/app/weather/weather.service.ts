@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class WeatherService {
 
   constructor(private http: HttpClient) {}
 
-    getWeatherForCurrentDay(location) {
+    getWeatherForCurrentDay(location: string): Observable<Object> {
       return this.http.get(
         `${this.baseUrl}${this.currentDay}?access_key=${this.accessKey}&query=${location}`
         );
