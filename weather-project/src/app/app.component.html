@@ -1,17 +1,26 @@
-<div class="container my-container">
+<div class="container text-open-sans-regular">
   <form action="" class="pt-2 mt-2">
-    <div class="form-row">
-
-      <div class="form-group col-1">
+    <div class="form-row col-12">
+      <div class="form-group col-1 text-open-sans-extra-bold">
         <p>City:</p>
       </div>
-      <div class="form-group col-6">
-        <input type="text" class="form-control" id="inlineFormInput" placeholder="Write city">
+      <div class="form-group col-7">
+        <input [(ngModel)]="city" name="city" #nameCity="ngModel" type="text" class="form-control" id="inlineFormInput"
+          placeholder="Write city" required pattern="[a-zA-Z,-]*">
       </div>
-      <div class="form-group col-5">
-        <button type="button" class="btn btn-success">Add City</button>
+      <div class="form-group col-2 text-open-sans-extra-bold">
+        <button [disabled]="nameCity.invalid" type="button" class="btn btn-success">Add City</button>
       </div>
-
+      <div class="form-group col-2 text-open-sans-extra-bold">
+        <button type="reset" class="btn btn-dark">Reset</button>
+      </div>
+    </div>
+    <div class="form-row mt-2 text-open-sans-semi-bold">
+      <div class="form-group">
+        <div *ngIf="nameCity.invalid && nameCity.touched">
+            <ngb-alert type="danger" (close)="close()">Please write city only with latin letters!</ngb-alert>
+        </div>
+      </div>
     </div>
   </form>
 </div>
